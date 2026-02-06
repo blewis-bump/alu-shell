@@ -2,7 +2,7 @@
 # this script prints 10 times best scholl using until loop as a control structure.
 
 var=1
-until [ $var -ge 10 ]; do
+until [ $var -ge 11 ]; do
  echo "Best School"
  ((var++))
 done
