@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
 # Provides information about the file "school" with exact wording for the checker
 
-if [ -e school ]; then
-    if [ -d school ]; then
-        echo "school exists but it’s a directory"
-    elif [ -f school ]; then
-        if [ ! -s school ]; then
-            echo "school file is not empty"
-        else
-            echo "school is a regular file"
-        fi
-    fi
+if [ ! -e school ]; then
+  echo "school file does not exist"
+  exit 0
+fi
+
+echo "school file exists"
+
+if [ -s school ]; then
+  echo "school file is not empty"
 else
-    echo "school does not exist"
+  echo "school file is empty"
+fi
+
+if [ -f school ]; then
+  echo "school is a regular file"
 fi
