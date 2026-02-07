@@ -6,11 +6,11 @@ if [ -e school ]; then
         echo "school exists but it’s a directory"
     elif [ -f school ]; then
         if [ ! -s school ]; then
-            echo "school exists but empty"
+            echo "school file is not empty"
         else
-            echo "File exist and is a regular file"
+            echo "school is a regular file"
         fi
     fi
 else
-    echo "school doesn’t exist"
+    echo "school does not exist"
 fi
