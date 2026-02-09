@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# this script display all lines containing bash.
+ps -aux | grep bash
