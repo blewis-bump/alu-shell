@@ -1,9 +1,3 @@
 #!/usr/bin/env bash
 # this script kills the process 7-highlander.
-trap 'exit' SIGTERM
-
-while true
-do
-    echo "To infinity and beyond"
-    sleep 2
-done
+kill "$(pgrep -f 7-highlander)"
