@@ -1,28 +1,9 @@
 #!/usr/bin/env bash
-# this script starts,stops and restart the daemon.
+# this is a daemon itself.
 
-PID_FILE="/var/run/my_process.pid"
-PROCESS="./manage_my_process"
+while true
+do
+    echo "I am alive!" >> /tmp/my_process
+    sleep 2
+done
 
-case "$1" in
-    start)
-        $PROCESS &
-        echo $! > "$PID_FILE"
-        echo "manage_my_process started"
-        ;;
-    stop)
-        kill "$(cat $PID_FILE)" 2>/dev/null
-        rm -f "$PID_FILE"
-        echo "manage_my_process stopped"
-        ;;
-    restart)
-        kill "$(cat $PID_FILE)" 2>/dev/null
-        rm -f "$PID_FILE"
-        $PROCESS &
-        echo $! > "$PID_FILE"
-        echo "manage_my_process restarted"
-        ;;
-    *)
-        echo "Usage: manage_my_process {start|stop|restart}"
-        ;;
-esac
